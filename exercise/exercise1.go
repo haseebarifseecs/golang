@@ -25,7 +25,7 @@ Define the PreparationTime function that takes the number of layers you added to
 */
 
 func PreparationTime(numLayers int) int {
-	return OvenTime * 2
+	return numLayers * 2
 }
 
 /*

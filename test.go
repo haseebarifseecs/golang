@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	e "./exercise"
+	e "package.mod/exercise"
 )
 
 func main() {
