@@ -4,6 +4,9 @@ import (
 	"fmt"
 )
 
+// Public Global Variable must have First Letter Capitalized
+const Public string = "This is publicly accessible constant"
+
 func main() {
 
 	// 3 Ways to define a variable
@@ -19,6 +22,10 @@ func main() {
 
 	var3 := "Test"
 
+	var var4 = 1
+
+	//This assignment will fail var4 = 2 because go is strictly typed
+
 	//  Primitives
 	/*
 		int, uint8, uint32, uint64
@@ -31,7 +38,10 @@ func main() {
 
 	*/
 
-	fmt.Println(var1, var2, var3)
+	fmt.Println(var1, var2, var3, var4, Public)
 	// To show data type
-	fmt.Printf("Type of var 1 is %T, var2 is %T, var3 is %T", var1, var2, var3)
+
+	var3 = "Something else"
+	fmt.Print(var3 + "\n")
+	fmt.Printf("Type of var 1 is %T, var2 is %T, var3 is %T \n", var1, var2, var3)
 }
