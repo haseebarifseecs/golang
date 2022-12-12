@@ -1,0 +1,16 @@
+GO CMDS
+go mod init github.com/username/repo
+
+go test 
+
+go mod tidy
+
+go get (module)
+
+go list -m all
+
+go list all
+
+go env
+
+go fmt
