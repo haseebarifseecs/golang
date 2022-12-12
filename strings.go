@@ -72,6 +72,8 @@ func main() {
 	for i < 100 {
 		if i%2 == 0 {
 			fmt.Println("\nEven", i)
+		} else {
+			break
 		}
 		i++
 
@@ -92,5 +94,43 @@ func main() {
 	// Printing ascii 33 - 122
 	for p := 0; p <= 122; p++ {
 		fmt.Printf("%#U\n", p)
+	}
+
+	isTrue := true
+
+	if isTrue {
+		fmt.Print(isTrue)
+	}
+
+	// isTrue still accessible here if i do fmt.Print(isTrue) here but if I want to restrict variable scope then i should do this
+
+	if isFalse := false; isFalse {
+		fmt.Print("Not Running")
+	}
+
+	// fmt.Print(isFalse) Not Accessible
+	{
+		var (
+			abc = "abc\n\n\n"
+		)
+		fmt.Print(abc) //Only Accessible in this block
+	}
+	// fmt.Println(abc) Not Accessible
+
+	var switchVar = true
+	switch switchVar {
+	case (switchVar == false):
+		fmt.Println("Not Printing")
+	case (switchVar == true), (false): //In Golang you can only compare similar data types for instance you can't compare bool to string or string to bool otherwise it will throw error
+		fmt.Println("Printing")
+		fallthrough
+	case (true):
+		fmt.Println("Will not print without fallthrough")
+		fallthrough //Since I add fallthrough here it will print the next statement whether it's true or false
+	case (false):
+		fmt.Print("Will not Print")
+
+	default:
+		fmt.Print("Will only print if nothing is true")
 	}
 }
