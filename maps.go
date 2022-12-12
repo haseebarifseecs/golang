@@ -38,4 +38,21 @@ func main() {
 
 	delete(m, "name")
 
+	// Nested Structs
+
+	type school struct {
+		name string
+	}
+
+	type uni struct {
+		s school
+	}
+
+	student := uni{
+		s: school{
+			name: "haseeb",
+		},
+	}
+
+	fmt.Println(student)
 }
