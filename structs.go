@@ -35,35 +35,50 @@ func changeAPI(k8sobj k8s) {
 	fmt.Println(k8sobj)
 }
 
-/*
-func main() {
-	var empty k8s = k8s{}
-	fmt.Println(empty)
-	// Creating obj for struct
-	var k8sobj k8s = k8s{
-		apiVersion: "v1",
-		kind:       "Pod",
-	}
-
-	//  Access values
-	var apiVersion = k8sobj.apiVersion
-	var kind = k8sobj.kind
-	fmt.Println(apiVersion, kind)
-	// Updating
-	k8sobj.kind = "Deployment"
-	fmt.Println(k8sobj)
-
-	//This should update the apiversion to v1alpha1
-	changeAPI(k8sobj)
-	fmt.Println(k8sobj) // This shouldn't update the struct because we are passing it by value not by reference so it updates its copy
-	// var k8sobj1 = &k8s{apiVersion: "v1", kind: "Pod"}
-	changeAPI2(&k8sobj)
-
-	var i interface{} = k8sobj
-	fmt.Print("After Passing by ref\n", k8sobj)
-	fmt.Printf("\n%T", i)
+func test(z *int) {
+	*z = 10
 }
+
+/*
+	func main() {
+		var empty k8s = k8s{}
+		fmt.Println(empty)
+		// Creating obj for struct
+		var k8sobj k8s = k8s{
+			apiVersion: "v1",
+			kind:       "Pod",
+		}
+
+		//  Access values
+		var apiVersion = k8sobj.apiVersion
+		var kind = k8sobj.kind
+		fmt.Println(apiVersion, kind)
+		// Updating
+		k8sobj.kind = "Deployment"
+		fmt.Println(k8sobj)
+
+		//This should update the apiversion to v1alpha1
+		changeAPI(k8sobj)
+		fmt.Println(k8sobj) // This shouldn't update the struct because we are passing it by value not by reference so it updates its copy
+		// var k8sobj1 = &k8s{apiVersion: "v1", kind: "Pod"}
+		changeAPI2(&k8sobj)
+
+		var i interface{} = k8sobj
+		fmt.Print("After Passing by ref\n", k8sobj)
+		fmt.Printf("\n%T", i)
+	}
 */
+func square(x *float64) {
+	*x = *x * *x
+}
+
+// Write a program that can swap two integers (x := 1; y := 2; swap(&x, &y) should give you x=2 and y=1).
+
+func swap(x *int, y *int) {
+	hold := *x
+	*x = *y
+	*y = hold
+}
 
 func main() {
 	var kobj k8s = k8s{
@@ -102,5 +117,34 @@ func main() {
 	// k8s.updateKind(ref)
 
 	// fmt.Println("After Changing By Reference", kobj)
+
+	x := 1.5
+	square(&x)
+
+	fmt.Println(x)
+
+	// x = int(10)
+	// y := 20
+
+	// swap(&x, &y)
+
+	// fmt.Println(x, y)
+
+	var k k8s = k8s{
+		apiVersion: "v1",
+		kind:       "test",
+	}
+
+	k.updatekind()
+
+	fmt.Println(k)
+
+	k.updateKind()
+
+	fmt.Println(k)
+
+	z := 20
+	test(&z)
+	fmt.Println(z)
 
 }
