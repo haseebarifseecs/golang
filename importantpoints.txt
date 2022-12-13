@@ -14,3 +14,6 @@ go list all
 go env
 
 go fmt
+
+https://play.golang.com/p/a4fx9rVxBQg
+https://play.golang.com/p/c_UVs-KpZKC
