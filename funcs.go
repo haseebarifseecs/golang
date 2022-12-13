@@ -63,4 +63,10 @@ func main() {
 	defer first()
 	defer second()
 	defer third() // this should run before first
+
+	// Anonymouse Function
+
+	func(s string) {
+		fmt.Println(s + "called")
+	}("Anonymouse")
 }
