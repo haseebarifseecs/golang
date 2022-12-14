@@ -1,6 +1,8 @@
 // Channels allow us to receive values from multiple goroutines
 // Comms b/w goroutines
 // Both sending and receiving in channels are blocking, So Compiler will wait until it receive the output to finish
+// Channels block if both send and receive doesn't happen at the same time.
+//
 
 package main
 
